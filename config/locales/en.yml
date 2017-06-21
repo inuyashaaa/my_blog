@@ -87,9 +87,11 @@ en:
     edit:
       title: "Edit user"
       update_profile: "Update your profile"
+      name: "Name"
+      email: "Email"
+      password: "Password"
       save_change: "Update infomation"
       change_img: "Change Avata"
-      password: "Password"
       confirm: "Confirmation"
       please: "Please log in."
       error: "Permission denied!!!"

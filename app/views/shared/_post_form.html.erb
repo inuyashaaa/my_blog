@@ -1,0 +1,18 @@
+<%= form_for @post do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <div class="field">
+    <%= f.text_area :body, placeholder: t(".placeholder") %>
+  </div>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+
+  <%= f.submit t(".post"), class: "btn btn-primary" %>
+  <span class="picture">
+    <%= f.file_field :picture, accept: Settings.posts.etx_images_accept %>
+  </span>
+<% end %>

@@ -26,7 +26,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: params[:id]
+    @posts = @user.posts.select(:id, :title, :body, :description, :picture,
+      :user_id, :created_at).create_at_desc.paginate page: params[:page],
+      per_page: Settings.posts.per_page
   end
 
   def edit; end

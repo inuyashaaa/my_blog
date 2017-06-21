@@ -1,5 +1,9 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
+
   before_save :downcase_email
+
+  has_many :posts, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: Settings.user.maximum_name.to_i}
@@ -9,8 +13,6 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.minium_password_length.to_i}
 
   has_secure_password
-
-  scope :activated, ->{where activated: true}
 
   class << self
     def digest string
@@ -41,6 +43,10 @@ class User < ApplicationRecord
 
   def is_user? user
     self == user
+  end
+
+  def load_feed
+    Post.load_feed(id).create_at_desc
   end
 
   private

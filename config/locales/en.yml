@@ -59,7 +59,7 @@ en:
       create_success: "Your account create successfull!!!"
     show:
       cant_show: "User not activate!"
-      microposts: "Microposts"
+      posts: "Posts"
     edit:
       title: "Edit user"
       update_profile: "Update your profile"
@@ -99,9 +99,9 @@ en:
       error: "error"
     user_info:
       view_profile: "View my profile"
-      micropost: "micropost"
-    micropost_form:
-      placeholder: "Compose new micropost..."
+      post: "Post"
+    post_form:
+      placeholder: "Compose new Post..."
       post: "Post"
     stats:
       following: "following"
@@ -120,9 +120,9 @@ en:
       welcome_back: "Welcome back <3"
     destroy:
       see_you_again: "See you again <3"
-  microposts:
+  posts:
     max_picture_size: "Should be less than 5MB"
-    micropost:
+    post:
       posted: "Posted"
       ago: "ago."
       delete: "Delete"

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :load_user, except: [:index, :new, :create]
   before_action :correct_user, only: [:edit, :update]
   before_action :verify_admin, only: :destroy
+
   def index
     @users = User.select(:id, :name, :email, :is_admin)
       .order(:name).page(params[:page]).per_page Settings.user.per_page
@@ -16,10 +17,10 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      flash[:info] = t ".check_mail"
+      flash[:success] = t ".create_success"
       redirect_to root_url
     else
-      flash.now[:danger] = t ".error"
+      flash.now[:error] = t ".error"
       render :new
     end
   end
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".flash"
       redirect_to @user
     else
-      flash.now[:danger] = t ".error"
+      flash.now[:error] = t ".error"
       render :edit
     end
   end
@@ -55,7 +56,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
 
     unless @user.is_user? current_user
-      flash[:danger] = t ".error"
+      flash[:error] = t ".error"
       redirect_to root_url
     end
   end

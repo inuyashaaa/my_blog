@@ -131,6 +131,8 @@ en:
   sessions:
     new:
       login: "Log in"
+      email: "Email"
+      password: "Password"
       new_user: "New user?"
       forgot_pass: "(forgot password)"
       signup_now: "Sign up now!"

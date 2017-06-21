@@ -8,12 +8,14 @@ user:
   seed_record: 99
   gravatar_size: 50
   gravatar_follow_size: 30
-microposts:
-  maximum_content_length: 140
+posts:
+  maximum_body_length: 1000
   seed_record: 50
-  user_taked: 6
-  sentence: 5
-  max_picture_size: 5
+  user_taked: 8
+  title_sentence: 1
+  body_sentence: 8
+  des_sentence: 1
+  max_picture_size: 10
   etx_images_accept: "image/jpeg,image/gif,image/png"
   per_page: 10
 pictures:

@@ -1,10 +1,5 @@
 source "https://rubygems.org"
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 gem "bcrypt"
 gem "bootstrap-sass"
 gem "bootstrap-will_paginate"
@@ -20,10 +15,10 @@ gem "mini_magick"
 gem "puma"
 gem "rails"
 gem "sass-rails"
+gem "tether-rails"
 gem "toastr-rails"
 gem "turbolinks"
 gem "uglifier"
-gem "tether-rails"
 
 group :development, :test do
   gem "byebug", platform: :mri

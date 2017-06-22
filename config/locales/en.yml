@@ -2,7 +2,6 @@ en:
   layouts:
     header:
       name_app: "Illuminati Blog"
-      home: "Home"
       help: "Help"
       login: "Login"
       users: "Users"
@@ -26,13 +25,13 @@ en:
     about:
       about: "About"
     home:
-      welcome: "Welcome to the Sample App"
+      welcome: "Welcome to the illuminati blog"
       this_is: "This is the home page for the"
       rort: "Ruby on Rails Tutorial"
       sample_app: "sample application."
       signup_now: "Sign up now!"
       link_rails: "http://www.railstutorial.org/"
-      micropost_feed: "Micropost Feed"
+      post_feed: "Post Feed"
     contact:
       contact: "Contact"
     help:
@@ -40,6 +39,9 @@ en:
   users:
     index:
       title: "All users"
+      user: "User"
+      email: "Email"
+      action: "Action"
       delete: "Delete"
       sure: "You sure?"
       please: "Please login!"
@@ -53,11 +55,10 @@ en:
       form_password: "Password"
       please: "Please log in."
     create:
-      welcome: "Welcome to the Sample App!"
+      welcome: "Welcome to the illuminati App!"
       error: "Could not save the User"
       create_success: "Your account create successfull!!!"
     show:
-      cant_show: "User not activate!"
       posts: "Posts"
     edit:
       title: "Edit user"
@@ -89,7 +90,7 @@ en:
       unfollow: "Unfollow"
     show_follow:
       view_profile: "View my profile"
-      microposts: "Microposts"
+      posts: "Posts"
       delete: "Delete"
       sure: "You sure?"
   shared:
@@ -125,12 +126,20 @@ en:
       posted: "Posted"
       ago: "ago."
       delete: "Delete"
+      comment: "Comment"
       confirm: "You sure?"
       alert_error: "Maximum file size is 5MB. Please choose a smaller file."
+      comment_by: "Commented by"
+      are_you_sure: "Are you sure?"
     create:
-      created: "Micropost created!"
+      created: "Post created!"
       please: "Please login!"
       error: "Can not create post. Something went wrong!"
     destroy:
-      deleted: "Micropost deleted"
+      deleted: "Post deleted"
       please: "Please login!"
+  comments:
+    create_success: "Created Comment <3"
+    create_error: "Opps!!! Can not create comment!"
+    delete_success: "Comment deleted!"
+    delete_error: "Can not delete comment"

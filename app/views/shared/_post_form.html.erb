@@ -11,8 +11,9 @@
   <%= f.label :description %>
   <%= f.text_field :description, class: "form-control" %>
 
-  <%= f.submit t(".post"), class: "btn btn-primary" %>
   <span class="picture">
     <%= f.file_field :picture, accept: Settings.posts.etx_images_accept %>
   </span>
+
+  <%= f.submit t(".post"), class: "btn btn-info" %>
 <% end %>

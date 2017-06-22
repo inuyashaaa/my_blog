@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'commentsee/https://devcenter.heroku.com/articles/ruby-versions'
-
-  get 'commentsee/for'
-
-  get 'commentsee/more'
-
-  get 'commentsee/information.'
-
   root "static_pages#home"
   get "/help", to: "static_pages#help"
   get "/about", to: "static_pages#about"

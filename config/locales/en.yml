@@ -7,7 +7,6 @@ en:
       login: "Login"
       users: "Users"
       profile: "Profile"
-      setting: "Setting"
       log_out: "Log out"
       change_profile: "Change Profile"
     footer:
@@ -22,7 +21,7 @@ en:
       link_book: "http://www.railstutorial.org/"
       link_author: "http://www.michaelhartl.com/"
     application:
-      base_title: "Ruby on Rails Tutorial Sample App"
+      base_title: "Illuminati Blog"
   static_pages:
     about:
       about: "About"

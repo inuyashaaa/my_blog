@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy] do
+    resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
 end

@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.load_feed.paginate(page: params[:page])
         .per_page Settings.user.per_page
     else
-      @posts = Post.all.paginate(page: params[:page]).per_page Settings.user.per_page
+      @posts = Post.all.create_at_desc.paginate(page: params[:page]).per_page Settings.user.per_page
     end
   end
 

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments
 
   scope :create_at_desc, ->{order created_at: :desc}
   scope :load_feed, ->(following_ids, id) do

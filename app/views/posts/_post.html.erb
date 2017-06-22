@@ -1,7 +1,7 @@
 <li id="micropost-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: Settings.user.gravatar_size),
     post.user %>
-  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <h3><%= link_to post.user.name, post.user %></h3>
   <span class="content">
     <%= post.body %>
     <%= image_tag post.picture.url if post.picture? %>
@@ -13,4 +13,25 @@
         data: {confirm: t(".confirm")} %>
     <% end %>
   </span>
+  <span>
+    <% post.comments.each do |comment| %>
+      <h4><%= comment.content %></h4>
+      <span class="text-info">Commented by <strong><%= comment.user.name %></strong></span>
+      <span><%= time_ago_in_words comment.created_at %></span>
+      <% if logged_in? && is_user?(comment.user) %>
+        <span>
+          <%= link_to "Delete", [comment.post, comment], method: :delete,
+            data: { confirm: "Are you sure?" } %>
+        </span>
+      <% end %>
+    <% end %>
+  </span>
+  <% if logged_in? && (current_user.following?(post.user) || is_user?(current_user)) %>
+    <span>
+      <%= form_for [post, post.comments.build] do |f| %>
+      <%= f.text_area :content %>
+      <%= f.submit  %>
+      <% end %>
+    </span>
+  <% end %>
 </li>

@@ -20,10 +20,10 @@ gem "mini_magick"
 gem "puma"
 gem "rails"
 gem "sass-rails"
+gem "tether-rails"
 gem "toastr-rails"
 gem "turbolinks"
 gem "uglifier"
-gem "tether-rails"
 
 group :development, :test do
   gem "byebug", platform: :mri

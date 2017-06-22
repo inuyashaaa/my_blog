@@ -17,3 +17,10 @@ Settings.posts.seed_record.times do
   users.each{|user| user.posts.create!(title: title, body: body,
     description: description)}
 end
+
+users = User.all
+user = users.first
+following = users[Settings.follow.min_following..Settings.follow.max_following]
+followers = users[Settings.follow.min_followers..Settings.follow.max_followers]
+following.each{|followed| user.follow followed}
+followers.each{|follower| follower.follow user}

@@ -6,16 +6,16 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @post.save
-      flash[:success] = "Created Comment <3"
+      flash[:success] = t ".create_success"
     else
-      flash[:error] = "Opps!!! Can not create comment!"
+      flash[:error] = t ".create_error"
     end
     redirect_to user_path @post.user_id
   end
 
   def destroy
     @comment = @post.comments.find_by id: params[:id]
-    @comment.destroy ? flash[:success] = "Comment deleted!" : flash[:error] = "Can not delete comment"
+    @comment.destroy ? flash[:success] = t(".delete_success") : flash[:error] = t(".delete_error")
     redirect_to user_path @post.user_id
   end
 

@@ -15,7 +15,7 @@
     <%= render "follow_form" if logged_in? %>
     <% if @user.posts.any? %>
       <h3><%= t ".posts" %> (<%= @user.posts.size %>)</h3>
-      <ol class="microposts">
+      <ol class="posts">
         <%= render @posts %>
       </ol>
       <%= will_paginate @posts %>

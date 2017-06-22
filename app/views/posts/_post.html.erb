@@ -3,8 +3,9 @@
     post.user %>
   <h3><%= link_to post.user.name, post.user %></h3>
   <span class="content">
-    <%= post.body %>
+    <h3><%= post.title %></h3>
     <%= image_tag post.picture.url if post.picture? %>
+    <p><%= post.body %></p>
   </span>
   <span class="timestamp">
     <%= t ".posted" %> <%= time_ago_in_words post.created_at %> <%= t ".ago" %>
@@ -13,24 +14,28 @@
         data: {confirm: t(".confirm")} %>
     <% end %>
   </span>
+
   <span>
     <% post.comments.each do |comment| %>
       <h4><%= comment.content %></h4>
-      <span class="text-info">Commented by <strong><%= comment.user.name %></strong></span>
+      <span class="text-info">
+        <%= t ".comment_by" %> <strong><%= comment.user.name %></strong>
+      </span>
       <span><%= time_ago_in_words comment.created_at %></span>
       <% if logged_in? && is_user?(comment.user) %>
         <span>
-          <%= link_to "Delete", [comment.post, comment], method: :delete,
-            data: { confirm: "Are you sure?" } %>
+          <%= link_to t(".delete"), [comment.post, comment], method: :delete,
+            data: { confirm: t(".are_you_sure") } %>
         </span>
       <% end %>
     <% end %>
   </span>
+
   <% if logged_in? && (current_user.following?(post.user) || is_user?(current_user)) %>
-    <span>
+    <span class="row">
       <%= form_for [post, post.comments.build] do |f| %>
-      <%= f.text_area :content %>
-      <%= f.submit  %>
+      <%= f.text_area :content, class: "form-control" %>
+      <%= f.submit t(".comment"), class: "btn btn-info"%>
       <% end %>
     </span>
   <% end %>

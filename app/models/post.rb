@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   scope :create_at_desc, ->{order created_at: :desc}
   scope :load_feed, ->(following_ids, id) do

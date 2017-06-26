@@ -1,0 +1,6 @@
+<div class="row" id="comment-list-post">
+  <%= form_for [post, comment], remote: true do |f| %>
+    <%= f.text_area :content, class: "form-control" %>
+    <%= f.submit "Comment", class: "btn btn-info"%>
+  <% end %>
+</div>

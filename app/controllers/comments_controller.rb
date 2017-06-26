@@ -6,11 +6,17 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @post.save
-      flash[:success] = t ".create_success"
+      flash.now[:success] = t ".create_success"
+      respond_to do |format|
+        format.html do
+          redirect_to :back
+        end
+        format.js
+      end
     else
       flash[:error] = t ".create_error"
     end
-    redirect_to user_path @post.user_id
+
   end
 
   def destroy

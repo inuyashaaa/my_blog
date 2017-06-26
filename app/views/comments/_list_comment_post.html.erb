@@ -1,0 +1,13 @@
+  <% comments.each do |comment| %>
+  <h4 style=""><%= comment.content %></h4>
+  <span class="text-info">
+    <%= t ".comment_by" %> <strong><%= comment.user.name %></strong>
+  </span>
+  <span><%= time_ago_in_words comment.created_at %></span>
+  <% if logged_in? && is_user?(comment.user) %>
+    <span>
+      <%= link_to t(".delete"), [comment.post, comment], method: :delete,
+        data: { confirm: t(".are_you_sure") } %>
+    </span>
+  <% end %>
+<% end %>

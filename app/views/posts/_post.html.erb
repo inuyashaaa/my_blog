@@ -14,29 +14,13 @@
         data: {confirm: t(".confirm")} %>
     <% end %>
   </span>
+  <div>
+    <%= render "comments/list_comment_post", comments: post.comments %>
+  </div>
 
-  <span>
-    <% post.comments.each do |comment| %>
-      <h4><%= comment.content %></h4>
-      <span class="text-info">
-        <%= t ".comment_by" %> <strong><%= comment.user.name %></strong>
-      </span>
-      <span><%= time_ago_in_words comment.created_at %></span>
-      <% if logged_in? && is_user?(comment.user) %>
-        <span>
-          <%= link_to t(".delete"), [comment.post, comment], method: :delete,
-            data: { confirm: t(".are_you_sure") } %>
-        </span>
-      <% end %>
+  <div id="comment-form-<%= post.id %>">
+    <% if logged_in? && (current_user.following?(post.user) || is_user?(current_user)) %>
+      <%= render "comments/comment_form", post: post, comment: post.comments.build %>
     <% end %>
-  </span>
-
-  <% if logged_in? && (current_user.following?(post.user) || is_user?(current_user)) %>
-    <span class="row">
-      <%= form_for [post, post.comments.build] do |f| %>
-      <%= f.text_area :content, class: "form-control" %>
-      <%= f.submit t(".comment"), class: "btn btn-info"%>
-      <% end %>
-    </span>
-  <% end %>
+  </div>
 </li>
